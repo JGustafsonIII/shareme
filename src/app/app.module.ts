@@ -19,7 +19,7 @@ import { environment as env } from '../environments/environment';
     AuthModule.forRoot({
       domain: env.Domain,
       clientId: env.ClientID
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

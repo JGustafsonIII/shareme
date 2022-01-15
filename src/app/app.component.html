@@ -1,6 +1,14 @@
+<div class="w-full h-full" *ngIf="authService.isLoading$ | async; else loaded">
+  <app-loading></app-loading>
+</div>
+<header></header>
+<nav></nav>
 <main>
-  <section *ngIf="!(authService.isAuthenticated$ | async)">
-    <app-login></app-login>
-  </section>
-  <router-outlet></router-outlet>
+  <ng-template #loaded>
+    <section *ngIf="!(authService.isAuthenticated$ | async)">
+      <app-login></app-login>
+    </section>
+    <router-outlet></router-outlet>
+  </ng-template>
 </main>
+<footer></footer>

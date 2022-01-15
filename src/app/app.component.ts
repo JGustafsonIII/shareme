@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'ShareMe';
   constructor(public authService: AuthService, private sanityService: SanityService) {
     this.authService.user$.subscribe(user => {
-      if (this.authService.getAccessTokenSilently()) {
+      if (user) {
         const doc: User = {
           _id: user?.sub ? user.sub.replace('|', '-') : '-1',
           _type: 'user',

@@ -1,0 +1,4 @@
+<section *ngIf="authService.isAuthenticated$ | async">
+  <app-user-profile></app-user-profile>
+</section>
+<app-sidebar></app-sidebar>

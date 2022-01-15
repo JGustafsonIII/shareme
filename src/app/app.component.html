@@ -1,4 +1,7 @@
-<div class="w-full h-full" *ngIf="authService.isLoading$ | async; else loaded">
+<div
+  class="w-full h-full"
+  *ngIf="loading || (authService.isLoading$ | async); else loaded"
+>
   <app-loading></app-loading>
 </div>
 <header></header>

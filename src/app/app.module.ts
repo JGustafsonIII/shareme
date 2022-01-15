@@ -7,14 +7,18 @@ import { AuthZeroModule } from './auth-zero/auth-zero.module';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
-import { HomeComponent } from './component/home/home.component';
-import { LoadingComponent } from './component/loading/loading.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoadingComponent
+    LoadingComponent,
+    SidebarComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -15,9 +15,9 @@ export class HomeComponent implements OnChanges {
   showSidebar: boolean = false;
   constructor(public authService: AuthService, public sanityService: SanityService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    // if (this.scrollRef) {
-    //   this.scrollRef.elementRef.nativeElement.scrollIntoView();
-    // }
+    if (this.scrollRef) {
+      this.scrollRef.elementRef.nativeElement.scrollIntoView();
+    }
   }
 
   public toggleSidebar(show: boolean): void {

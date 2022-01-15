@@ -5,6 +5,7 @@
     <app-sidebar
       *ngIf="authService.user$ | async as user"
       (currentUser)="(user)"
+      (showSidebar)="toggleSidebar($event)"
     ></app-sidebar>
   </div>
 
@@ -63,6 +64,7 @@
         <app-sidebar
           *ngIf="authService.user$ | async as user"
           (currentUser)="(user)"
+          (showSidebar)="toggleSidebar($event)"
         ></app-sidebar>
       </div>
     </ng-container>
@@ -75,7 +77,7 @@
     <a [routerLink]="['/profile', user.nickname]"
       ><app-user-profile></app-user-profile
     ></a>
-    <a routerLink="pins"><app-pins (currentUser)="(user)"></app-pins></a>
+    <a routerLink="/pins"><app-pins (currentUser)="(user)"></app-pins></a>
   </div>
 </div>
 

@@ -4,14 +4,12 @@
 >
   <app-loading></app-loading>
 </div>
-<header></header>
-<nav></nav>
+
 <main>
   <ng-template #loaded>
     <section *ngIf="!(authService.isAuthenticated$ | async)">
       <app-login></app-login>
     </section>
-    <router-outlet></router-outlet>
   </ng-template>
 </main>
-<footer></footer>
+<router-outlet></router-outlet>

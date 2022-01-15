@@ -46,8 +46,4 @@ export class SanityService {
         console.warn(e);
       })
   }
-  // async getUser(): Promise<User> {
-  //  return await 
-  //}
-
 }

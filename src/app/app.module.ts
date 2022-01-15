@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PinsComponent } from './components/pins/pins.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     HomeComponent,
     LoadingComponent,
     SidebarComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PinsComponent
   ],
   imports: [
     BrowserModule,

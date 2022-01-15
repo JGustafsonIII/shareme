@@ -1,4 +1,84 @@
-<section *ngIf="authService.isAuthenticated$ | async">
+<div
+  class="flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out"
+>
+  <div class="hidden md:flex h-screen flex-initial">
+    <app-sidebar
+      *ngIf="authService.user$ | async as user"
+      (currentUser)="(user)"
+    ></app-sidebar>
+  </div>
+
+  <div class="flex sm:hidden md:hidden flex-row">
+    <div
+      class="p-2 w-full flex flex-row justify-between items-center shadow-md"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        (click)="toggleSidebar(true)"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+
+      <a routerLink="/home"
+        ><img src="assets/logo.png" alt="logo" class="w-28"
+      /></a>
+
+      <div *ngIf="authService.user$ | async as user">
+        <a [routerLink]="['/profile', user.nickname]"
+          ><img
+            src="{{ user.picture }}"
+            alt="Users Picture"
+            class="w-9 h-9 rounded-full"
+        /></a>
+      </div>
+    </div>
+    <ng-container *ngIf="showSidebar">
+      <div
+        class="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in"
+      >
+        <div class="absolute w-full flex justify-end items-center p-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            (click)="toggleSidebar(false)"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <app-sidebar
+          *ngIf="authService.user$ | async as user"
+          (currentUser)="(user)"
+        ></app-sidebar>
+      </div>
+    </ng-container>
+  </div>
+  <div
+    class="pb-2 flex-1 h-screen overflow-y-scroll"
+    *ngIf="authService.user$ | async as user"
+    #scrollRef
+  >
+    <a [routerLink]="['/profile', user.nickname]"
+      ><app-user-profile></app-user-profile
+    ></a>
+    <a routerLink="pins"><app-pins (currentUser)="(user)"></app-pins></a>
+  </div>
+</div>
+
+<!-- <section *ngIf="authService.isAuthenticated$ | async">
   <app-user-profile></app-user-profile>
-</section>
-<app-sidebar></app-sidebar>
+</section> -->

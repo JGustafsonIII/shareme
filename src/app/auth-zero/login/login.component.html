@@ -1,5 +1,5 @@
-<div class="flex justify-start items-center flex-col h-screen">
-  <div class="relative w-full h-full">
+<main class="flex justify-start items-center flex-col h-screen">
+  <section class="relative w-full h-full">
     <video
       src="assets/share.mp4"
       loop
@@ -15,7 +15,7 @@
       </div>
       <div class="shadow-2xl">
         <button
-          (click)="auth.loginWithRedirect()"
+          (click)="authService.loginWithRedirect()"
           class="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
         >
           <svg
@@ -32,9 +32,9 @@
               d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
             />
           </svg>
-          Sign In
+          Sign In with Google
         </button>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>

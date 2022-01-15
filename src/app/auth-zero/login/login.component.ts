@@ -6,6 +6,5 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  constructor(public auth: AuthService) { }
+  constructor(public authService: AuthService) { }
 }

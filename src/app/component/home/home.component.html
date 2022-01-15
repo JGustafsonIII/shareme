@@ -1,0 +1,7 @@
+<section *ngIf="authService.isAuthenticated$ | async">
+  <ul *ngIf="authService.user$ | async as user">
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+    <li><app-logout></app-logout></li>
+  </ul>
+</section>

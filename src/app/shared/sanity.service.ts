@@ -26,14 +26,24 @@ export class SanityService {
     return imageUrlBuilder(this.sanityClientCredentials.option).image(source);
   }
 
-  async addUser(user: User) {
+  async addOrCreateUser(user: User) {
     return await this.sanityClientCredentials.option.createIfNotExists(user)
       .then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       })
       .catch(e => {
-        console.warn(user);
+        console.warn('Error creating user or logging in!');
+      })
+  }
 
+  async getUser(sub: string) {
+    sub = sub.replace('-', '/');
+    return await this.sanityClientCredentials.option.getDocument(sub)
+      .then((result) => {
+        return result;
+      })
+      .catch(e => {
+        console.warn(e);
       })
   }
   // async getUser(): Promise<User> {

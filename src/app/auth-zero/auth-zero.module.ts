@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
-
-
+/**
+ * This module contains login and logout components.
+ */
 @NgModule({
   declarations: [
     LoginComponent,
@@ -18,4 +19,4 @@ import { LogoutComponent } from './logout/logout.component';
     LogoutComponent
   ]
 })
-export class LoginModule { }
+export class AuthZeroModule { }

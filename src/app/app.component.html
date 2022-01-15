@@ -1,1 +1,6 @@
-<router-outlet></router-outlet> <app-logout></app-logout>
+<main>
+  <section *ngIf="!(authService.isAuthenticated$ | async)">
+    <app-login></app-login>
+  </section>
+  <router-outlet></router-outlet>
+</main>

@@ -9,6 +9,6 @@ import { DOCUMENT } from '@angular/common';
 })
 export class LogoutComponent {
 
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) { }
+  constructor(@Inject(DOCUMENT) public document: Document, public authService: AuthService) { }
 
 }

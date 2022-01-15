@@ -1,0 +1,3 @@
+<ng-container *ngIf="authService.isAuthenticated$ | async">
+  <button (click)="authService.logout({ returnTo: '' })">Log out</button>
+</ng-container>

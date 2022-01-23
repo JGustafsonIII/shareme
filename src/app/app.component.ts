@@ -25,12 +25,12 @@ export class AppComponent {
     private router: Router
   ) {
     this.authService.user$.subscribe((user) => {
-      if (user) {
+      if (user !== null && user !== undefined) {
         const doc: User = {
-          _id: user?.sub ? user.sub.replace('|', '-') : '-1',
+          _id: user.sub ? user.sub.replace('|', '-') : '-1',
           _type: 'user',
-          userName: user?.name,
-          image: user?.picture,
+          userName: user.name,
+          image: user.picture,
         };
         this.sanityService.addOrCreateUser(doc);
       }

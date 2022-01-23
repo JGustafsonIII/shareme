@@ -7,8 +7,12 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'home', component: HomeComponent, canActivate: [AuthGuard],
+    children: [{ path: 'categories/:category', component: HomeComponent, canActivate: [AuthGuard] }]
+  },
   { path: 'pins', component: PinsComponent, canActivate: [AuthGuard] },
   { path: 'profile/:username', component: UserProfileComponent, canActivate: [AuthGuard] }
 
